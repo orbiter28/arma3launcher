@@ -28,15 +28,13 @@ i = 0
 try:
     while liste2[i]:
         print("***********")
-        print("tri des fichier et dossier")
+        print("tris des fichier et dossier")
         print("et création des listes")
         print("***********")
         i += 1
         if "." in liste2[i]:
-           # print (liste2[i], "est un fichier")
             listefichier.append(liste2[i])
         else :
-           # print (liste2[i], "est un dossier")
             listedossier.append(liste2[i])
 except IndexError:
     pass
@@ -83,11 +81,11 @@ try:
     while listefichier[i]:
         i += 1
         temp_str = listefichier[i]
-       # print (temp_str)
+
         
         folder=os.path.splitext(os.path.dirname(temp_str))
         folder=''.join(folder)
-       # print("folder",folder)
+
         
         
         file=os.path.splitext(os.path.basename(temp_str))
@@ -99,32 +97,18 @@ try:
         if not os.path.isfile(file):
             print("le fichier n'existe pas")
             print ("Téléchargement du fichier", file)
-           # print ("folder :", folder)
+
             ftp_folder=folder.replace("\\","/")
-           # print ("ftp_folder avec les slash", ftp_folder)
+
             ftp_folder = "/" + ftp_folder
-           # print ("ftp_folder final", ftp_folder)
-           # print ("fichier dans le répertoire", ftp.nlst(ftp_folder))
-           # print ("****************")
-           # print ("ftp.cwd(",ftp_folder,")")
+
             ftp.cwd(ftp_folder)
             fhandle = open(file, 'wb')
-           # print ("Getting " , file)
+
             ftp.retrbinary('RETR ' + file, fhandle.write)
             fhandle.close()
             
-            
-         
-        #changer de répertoire sous windows
-        #tester si le fichier existe déja sous windows
-        #sinon
-        #changer de répertoire sur le ftp (mod + folder)
-        #télécharger le fichier (...+folder)
 
-        
-        #newfile = listefichier[i]
-        #if not os.path.isfile(newfile):
-        #    ftp.retrbinary("RETR " + newfile ,open(newfile, 'wb').write)
         
 except IndexError:
     ftp.quit()
