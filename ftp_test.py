@@ -29,7 +29,7 @@ try:
         print("et création des listes")
         print("***********")
         i += 1
-        if os.path.isfile(liste2[i]) in liste2[i]:
+        if os.path.isfile(liste2[i]) :
             listefichier.append(liste2[i])
         else :
             listedossier.append(liste2[i])
