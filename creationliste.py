@@ -51,13 +51,15 @@ except IndexError:
     nbr_fichier = i - 1
     
 list_fichier=open("listfichier.txt","w")
+listefichier=str(listefichier)
 list_fichier.write(listefichier)
 list_fichier.close()
 
 print ("fichier listfichier créé !")
 
 list_dossier=open("listdossier.txt","w")
-list_dossier.write(listdossier)
+listedossier=str(listedossier)
+list_dossier.write(listedossier)
 list_dossier.close()
 
 print ("fichier listdossier créé !")
