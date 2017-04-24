@@ -1,15 +1,12 @@
-import sys
 import os
-import ntpath
-import winreg
 from tkinter import *
 from tkinter.filedialog import askdirectory
 from tkinter.messagebox import *
 import ftplib
-from ftplib import FTP
+import time
 
 def dest():
-    showwarning('Selectionner le dossier', 'Selectionner le dossier dans lequel serons télécharger les mods')
+    showwarning('Dossier des destination', 'Selectionner le dossier dans lequel seront téléchargé les mods')
     global rep
     rep = askdirectory(initialdir="/",title='Choisissez un repertoire')
     if len(rep) > 0:
