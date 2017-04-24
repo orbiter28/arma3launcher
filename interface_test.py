@@ -36,13 +36,13 @@ def telechargement():
     listedossier=[]
     listefichier=[]
     
+    print("***********")
+    print("tris des fichier et dossier")
+    print("et création des listes")
+    print("***********")
     i = 0
     try:
         while liste2[i]:
-            print("***********")
-            print("tris des fichier et dossier")
-            print("et création des listes")
-            print("***********")
             i += 1
             if os.path.isfile(liste2[i]) :
                 listefichier.append(liste2[i])
