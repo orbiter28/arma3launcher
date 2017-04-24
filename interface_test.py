@@ -26,52 +26,18 @@ def telechargement():
     ftp.cwd("mods")
     
     os.chdir (rep)
-    ftp.retrbinary("RETR " + "list.txt" ,open("list.txt", 'wb').write)
+    ftp.retrbinary("RETR " + "listfichier.txt" ,open("listfichier.txt", 'wb').write)
+    ftp.retrbinary("RETR " + "listdossier.txt" ,open("listdossier.txt", 'wb').write)
     time.sleep(1)
     
-    fichier=open("list.txt","r")
+    listefichier=open("listfichier.txt","r")
+    listedossier=open("listdossier.txt","r")
     
-    liste = fichier.read()
-    liste2=liste.splitlines()
-    listedossier=[]
-    listefichier=[]
-    
-    print("***********")
-    print("tris des fichier et dossier")
-    print("et création des listes")
-    print("***********")
-    i = 0
-    try:
-        while liste2[i]:
-            i += 1
-            if os.path.isfile(liste2[i]) :
-                listefichier.append(liste2[i])
-            else :
-                listedossier.append(liste2[i])
-    except IndexError:
-        print("tris terminé")
-        
-    print("***********")
-    print("liste des fichiers :")   
-    i = 0
-    try:
-        while listefichier[i]:
-            print("fichier",i,listefichier[i])
-            i += 1
-    except IndexError:
-        print("listage des fichiers terminé")
-        
-    print("***********")
-    print("liste des dossier :")
-    i = 0
-    try:
-        while listedossier[i]:
-            print("dossier",i, listedossier[i])
-            i += 1
-    except IndexError:
-        print("listage des dossier terminé")
-        nbr_fichier = i - 1
-        
+    listefichier = listefichier.read()
+    listefichier=listefichier.splitlines()
+    listedossier = listedossier.read()
+    listedossier=listedossier.splitlines()
+
     print("***********")
     print ("création des dosssier sur windows")
     i = 0
