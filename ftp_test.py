@@ -55,6 +55,7 @@ try:
         i += 1
 except IndexError:
     print("listage des dossier terminé")
+    nbr_fichier = i - 1
     
 print("***********")
 print ("création des dosssier sur windows")
@@ -79,6 +80,7 @@ try:
         file=os.path.splitext(os.path.basename(temp_str))
         file=''.join(file)
         print("traitement de", file)
+        print("Il s'agit du fichier ",i," sur", nbr_fichier)
         os.chdir (r"H:\test\\"+folder)
         if os.path.isfile(file):
             print("le fichier existe déjà")
