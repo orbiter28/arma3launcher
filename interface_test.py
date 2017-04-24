@@ -16,9 +16,8 @@ def dest():
 def mdp():
     global mot_de_passe
     mot_de_passe = StringVar()
-    entreee = Entry(fenetre, textvariable=var_texte, width=30)
+    entreee = Entry(fenetre, textvariable=mot_de_passe, width=30)
     entreee.grid(row =3, column =1, padx=100,pady=5)
-    print (var_texte.get())
     
 def telechargement():
     global mot_de_passe
