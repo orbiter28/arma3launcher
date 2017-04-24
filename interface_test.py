@@ -22,7 +22,7 @@ def mdp():
 def telechargement():
     global mot_de_passe
     ftp = ftplib.FTP("ftp.ecaline.fr")
-    ftp.login("ecaline", mot_de_passe)
+    ftp.login("ecaline", mot_de_passe.get())
     ftp.cwd("mods")
     
     os.chdir (rep)
