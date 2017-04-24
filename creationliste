@@ -1,0 +1,64 @@
+# utiliser dir /B /S pour generer le fichier list.txt
+
+import os
+import ftplib
+import time
+
+rep=input ("répertoire des mods")
+os.system (dir /B /S > list.txt)
+
+fichier=open("list.txt","r")
+
+liste = fichier.read()
+liste2=liste.splitlines()
+listedossier=[]
+listefichier=[]
+
+
+i = 0
+try:
+    while liste2[i]:
+        print("***********")
+        print("tri des fichier et dossier")
+        print("et création des listes")
+        print("***********")
+        i += 1
+        if os.path.isfile(liste2[i]) :
+            listefichier.append(liste2[i])
+        else :
+            listedossier.append(liste2[i])
+except IndexError:
+    print("tri terminé")
+    
+print("***********")
+print("liste des fichiers :")   
+i = 0
+try:
+    while listefichier[i]:
+        print("fichier",i,listefichier[i])
+        i += 1
+except IndexError:
+    print("listage des fichiers terminé")
+    
+print("***********")
+print("liste des dossier :")
+i = 0
+try:
+    while listedossier[i]:
+        print("dossier",i, listedossier[i])
+        i += 1
+except IndexError:
+    print("listage des dossier terminé")
+    nbr_fichier = i - 1
+    
+list_fichier=open("listfichier.txt","w")
+list_fichier.write(listefichier)
+list_fichier.close()
+
+print ("fichier listfichier créé !")
+
+list_dossier=open("listdossier.txt","w")
+list_dossier.write(listdossier)
+list_dossier.close()
+
+print ("fichier listdossier créé !")
