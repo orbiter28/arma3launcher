@@ -34,7 +34,8 @@ try:
         else :
             listedossier.append(liste2[i])
 except IndexError:
-    print("Une erreure est apparue")
+    print("tris terminé")
+    
 print("***********")
 print("liste des fichiers :")   
 i = 0
@@ -43,7 +44,8 @@ try:
         print("fichier",i,listefichier[i])
         i += 1
 except IndexError:
-    print("Une erreure est apparue")
+    print("listage des fichiers terminé")
+    
 print("***********")
 print("liste des dossier :")
 i = 0
@@ -52,7 +54,8 @@ try:
         print("dossier",i, listedossier[i])
         i += 1
 except IndexError:
-    print("Une erreure est apparue")
+    print("listage des dossier terminé")
+    
 print("***********")
 print ("création des dosssier sur windows")
 i = 0
@@ -63,7 +66,7 @@ try:
         if not os.path.exists(newpath):
             os.makedirs(newpath)
 except IndexError:
-    print("Un erreure est apparue")
+    print("Création des dossiers terminé")
 print("***********")
 print ("Téléchargement des fichiers")
 i = 1
@@ -77,17 +80,18 @@ try:
         file=''.join(file)
         print("traitement de", file)
         os.chdir (r"H:\test\\"+folder)
-        if not os.path.isfile(file):
-            print("le fichier n'existe pas")
-        print ("Téléchargement du fichier", file)
-        ftp_folder=folder.replace("\\","/")
-        ftp_folder = "/" + ftp_folder
-        ftp.cwd(ftp_folder)
-        fhandle = open(file, 'wb')
-        ftp.retrbinary('RETR ' + file, fhandle.write)
-        fhandle.close()
+        if os.path.isfile(file):
+            print("le fichier existe déjà")
+        else:
+            print ("Téléchargement du fichier", file)
+            ftp_folder=folder.replace("\\","/")
+            ftp_folder = "/" + ftp_folder
+            ftp.cwd(ftp_folder)
+            fhandle = open(file, 'wb')
+            ftp.retrbinary('RETR ' + file, fhandle.write)
+            fhandle.close()
 except IndexError:
-    print("Une erreure est apparue")
+    print("Téléchargement terminé")
 ftp.quit()
         
 
