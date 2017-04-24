@@ -13,9 +13,17 @@ def dest():
         showwarning ('Selectionner le dossier', 'vous avez choisi le repertoire %s' % rep)
     os.chdir (rep)
 
+def mdp():
+    global mot_de_passe
+    mot_de_passe = StringVar()
+    entreee = Entry(fenetre, textvariable=var_texte, width=30)
+    entreee.grid(row =3, column =1, padx=100,pady=5)
+    print (var_texte.get())
+    
 def telechargement():
+    global mot_de_passe
     ftp = ftplib.FTP("ftp.ecaline.fr")
-    ftp.login("ecaline", "nop")
+    ftp.login("ecaline", mot_de_passe)
     ftp.cwd("mods")
     
     os.chdir (rep)
@@ -104,10 +112,6 @@ def telechargement():
         print("Téléchargement terminé")
     ftp.quit()
 
-    
-def inutile():
-    showwarning('Cesser de cliquer sur des boutons inutiles')
-
 
 #------ Programme principal -------
  
@@ -124,8 +128,8 @@ bou4 = Button(fenetre,text='Quitter',command=fenetre.quit)
 
 bou1.grid(row =1, column =1, padx=100,pady=5)
 bou2.grid(row =2, column =1, padx=100,pady=5)
-bou3.grid(row =3, column =1, padx=100,pady=5)
-bou4.grid(row =4, column =1, padx=100,pady=5)
+bou3.grid(row =4, column =1, padx=100,pady=5)
+bou4.grid(row =5, column =1, padx=100,pady=5)
 
 
 
