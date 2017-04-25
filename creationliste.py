@@ -1,11 +1,11 @@
-# utiliser dir /B /S pour generer le fichier list.txt
-
 import os
-import ftplib
 import time
 
 rep=input ("répertoire des mods")
-os.system (dir /B /S > list.txt)
+os.chdir(rep)
+#encoding utf-8 for the command prompt and the file list.txt
+os.system("chcp 65001")
+os.system("dir /B /S > list.txt")
 
 fichier=open("list.txt","r")
 
@@ -63,3 +63,4 @@ list_dossier.write(listedossier)
 list_dossier.close()
 
 print ("fichier listdossier créé !")
+print ("Il ne reste plus qu'a envoyé les 3 ficheirs dans le ftp à la base du dossier mod")
