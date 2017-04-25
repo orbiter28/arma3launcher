@@ -63,4 +63,4 @@ list_dossier.write(listedossier)
 list_dossier.close()
 
 print ("fichier listdossier créé !")
-print ("Il ne reste plus qu'a envoyé les 3 ficheirs dans le ftp à la base du dossier mod")
+print ("Il ne reste plus qu'a envoyé les 3 fichiers dans le ftp à la base du dossier mod")
