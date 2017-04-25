@@ -50,15 +50,24 @@ except IndexError:
     print("listage des dossier terminé")
     nbr_fichier = i - 1
     
-list_fichier=open("listfichier.txt","w")
 listefichier=str(listefichier)
+listefichier=listefichier.replace("[\'","")
+listefichier=listefichier.replace("\', \'", '\n')
+listefichier=listefichier.replace("\']","")
+
+list_fichier=open("listfichier.txt","w")
 list_fichier.write(listefichier)
 list_fichier.close()
 
 print ("fichier listfichier créé !")
 
-list_dossier=open("listdossier.txt","w")
 listedossier=str(listedossier)
+listedossier=str(listedossier)
+listedossier=listedossier.replace("[\'","")
+listedossier=listedossier.replace("\', \'", '\n')
+listedossier=listedossier.replace("\']","")
+
+list_dossier=open("listdossier.txt","w")
 list_dossier.write(listedossier)
 list_dossier.close()
 
